@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Wallet System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏦 Banking Wallet System</h1>
+
+        <!-- Auth Section -->
+        <div id="auth-section" class="card">
+            <h3>Login / Register</h3>
+            <input type="text" id="name" placeholder="Name (For Register only)">
+            <input type="email" id="email" placeholder="Email">
+            <input type="text" id="mobile" placeholder="Mobile (For Register only)">
+            <input type="password" id="password" placeholder="Password">
+            <div class="btn-group">
+                <button onclick="register()">Register</button>
+                <button onclick="login()">Login</button>
+            </div>
+            <p id="auth-msg" class="msg"></p>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="card" style="display: none;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h3>Welcome! 👋</h3>
+                <button onclick="logout()" class="btn-danger">Logout</button>
+            </div>
+
+            <!-- Balance -->
+            <div class="wallet-box">
+                <h2>Wallet Balance: ₹ <span id="balance">0.00</span></h2>
+                <button onclick="checkBalance()">🔄 Refresh Balance</button>
+                <hr>
+                <input type="number" id="addAmount" placeholder="Amount to add" min="1">
+                <button onclick="addMoney()">➕ Add Money</button>
+                <p id="add-msg" class="msg"></p>
+            </div>
+
+            <!-- Transfer -->
+            <div class="wallet-box">
+                <h3>💸 Transfer Money</h3>
+                <input type="email" id="receiverEmail" placeholder="Receiver Email">
+                <input type="number" id="transferAmount" placeholder="Amount" min="1">
+                <button onclick="transferMoney()">Send Money</button>
+                <p id="transfer-msg" class="msg"></p>
+            </div>
+
+            <!-- History -->
+            <div class="wallet-box">
+                <h3>📜 Transaction History</h3>
+                <button onclick="loadHistory()">Load History</button>
+                <ul id="history-list"></ul>
+            </div>
+
+            <!-- AI Assistant -->
+            <div class="wallet-box ai-box">
+                <h3>🤖 AI Financial Assistant</h3>
+                <input type="text" id="aiPrompt" placeholder="Ask AI for financial advice...">
+                <button onclick="askAi()">Ask AI</button>
+                <p id="ai-response" class="msg"></p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
